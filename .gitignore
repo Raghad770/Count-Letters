@@ -30,3 +30,44 @@
 *.exe
 *.out
 *.app
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+ 
+int main()
+{
+     
+    string s1;
+    int i = 0,n;
+    int  matri[26] = { 0 },j=0,m=0,x=0;
+    cin >>s1;
+    n = s1.size();
+    char *c=new char[n];
+    char* c2 = new char[n];
+    for (int l = 0; l < n; l++) {
+        c[l] = s1[l];
+    }
+    c[n] = '\0';
+    sort(c, c + n);
+  
+    while(x<n){
+        c2[m] = c[x];
+            while( j < n){
+               
+                if (c[j] != c2[m]) {
+                 
+                    break;
+            }
+                j++;
+            matri[m] = matri[m] + 1;
+        }
+        m++;
+        x = j;
+    }
+   
+    for (int x = 0; x <m; x++) {
+        cout << c2[x] << " " << ':' << " " << matri[x] << endl;
+    }
+   
+}
